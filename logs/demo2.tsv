@@ -1,0 +1,6 @@
+160718  11:36:03	643 Connect	root@localhost as anonymous on lfs
+		  643 Query	BEGIN
+		  643 Query	SELECT usage FROM tickets WHERE code = 'AAAAAA' FOR UPDATE
+		  643 Query	UPDATE tickets SET usage = 1 WHERE code = 'AAAAAA'
+		  643 Query	COMMIT
+		  643 Quit

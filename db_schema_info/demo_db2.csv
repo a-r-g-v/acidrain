@@ -1,0 +1,2 @@
+tickets,code,varchar(32),\N,PRI
+tickets,usage,int(11),\N,
