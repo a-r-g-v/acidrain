@@ -1545,8 +1545,10 @@ if args.tbl is None:
                 potential_anomaly = graph.find_potential_anomalies(op1, op2)
                 if potential_anomaly is not None:
                     anomalousTables = anomalousTables + newTables
-        for tbl in anomalousTables:
-            print(tbl)
+        if anomalousTables:
+            print("found anomalousTables: ")
+            for tbl in anomalousTables:
+                print(tbl)
         print('')
 else:
     for api in graph.apis:
