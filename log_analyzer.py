@@ -338,6 +338,10 @@ class LogObject:
     def isSelectForUpdate(self):
         if self.queryType != QueryType.select:
             return False
+        elif isinstance(self.parsed.tokens[-1], sqlparse.sql.Where):
+            tokens = self.parsed.tokens[-1].tokens
+            return (tokens[-1].value.upper() == 'UPDATE' and
+                    tokens[-3].value.upper() == 'FOR')
         else:
            return (self.parsed.tokens[-1].value.upper() == 'UPDATE' and
                    self.parsed.tokens[-3].value.upper() == 'FOR')
