@@ -1325,7 +1325,7 @@ def buildGraph(logObjs):
                     ahGraph.addOpNode(stmt, curTxn, curApi, curForUpdates)
                 else:
                     ahGraph.addOpNode(stmt, ahGraph.addTxnNode(curApi), curApi, [])
-    for i in xrange(1, len(ahGraph.ops)):
+    for i in xrange(0, len(ahGraph.ops)):
         op1 = ahGraph.ops[i]
         log1 = op1.logObj
         if ((log1.queryType == QueryType.insert) or
@@ -1357,7 +1357,7 @@ def printAHGraph(ahGraph, printRead, printWrite, printEdges, printStats):
     writes = []
     edges = []
     nonTrivialTxns = []
-    for i in xrange(1, len(ahGraph.ops)):
+    for i in xrange(0, len(ahGraph.ops)):
         op = ahGraph.ops[i]
         log = op.logObj
         if log.isRead():
@@ -1525,7 +1525,7 @@ if args.tbl is None:
         print(' -------------------------------------------------------')
         foundTbls = {}
         anomalousTables = []
-        for i in xrange(1, len(api.ops)):
+        for i in xrange(0, len(api.ops)):
             for j in xrange(i+1, len(api.ops)):
                 op1 = api.ops[i]
                 op2 = api.ops[j]
@@ -1555,7 +1555,7 @@ else:
         print(' -------------------------------------------------------')
         print(' API Call: ' + str(api.nodeId))
         print(' -------------------------------------------------------')
-        for i in xrange(1, len(api.ops)):
+        for i in xrange(0, len(api.ops)):
             for j in xrange(i+1, len(api.ops)):
                 op1 = api.ops[i]
                 op2 = api.ops[j]
